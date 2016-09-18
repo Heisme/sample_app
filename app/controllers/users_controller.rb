@@ -15,7 +15,7 @@ class UsersController < ApplicationController
       redirect_to @user
       #hanle a successfull save.
     else
-      #flash[:error] = "There is a problem"
+      flash[:error] = "There is a problem"
       render 'new'
     end
   end
