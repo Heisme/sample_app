@@ -1,16 +1,10 @@
 Rails.application.routes.draw do
-  get 'session/new'
-
   get 'users/new'
+  get 'session/new' #session_new_url
 
-  #get 'static_pages/home'
-  root                  'static_pages#home'
-  #get 'static_pages/home'
-  #get 'static_pages/help'
+  root                 'static_pages#home'
   get     'help'    => 'static_pages#help'
-  #get 'static_pages/about'
   get     'about'   => 'static_pages#about'
-  #get 'static_pages/contact'
   get     'contact' => 'static_pages#contact'
   get     'signup'  => 'users#new'
 
@@ -19,6 +13,7 @@ Rails.application.routes.draw do
   delete  'logout'  => 'session#destroy'
 
   resources :users #, path: :people
+  delete 'users/destroy' #session_new_url
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

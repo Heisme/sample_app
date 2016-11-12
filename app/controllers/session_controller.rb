@@ -12,7 +12,8 @@ class SessionController < ApplicationController
       log_in user
       if params[:session][:remember_me] == '1' ? remember(user) : forget(user)
       end
-      redirect_to user # user_url(user)
+      redirect_back_or user
+      #redirect_to user # user_url(user)
     else
       flash.now[:danger] = "Invalid password"
       render 'new'
